@@ -39,11 +39,11 @@ function App() {
 
   const formatResponse = (text) => {
     return text
-      .replace(/#/g, "") 
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/\*(.*?)\*/g, "$1") 
-      .replace(/- /g, "• ") 
-      .replace(/\d+\.\s/g, "<br><br>")
+      .replace(/#/g, "") // Remove hash (#) symbols
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Convert **bold** to <strong>text</strong>
+      .replace(/\*(.*?)\*/g, "$1") // Remove *italic* markers
+      .replace(/- /g, "• ") // Convert "- " to "• "
+      .replace(/\d+\.\s/g, "<br><br>") // Add spacing before numbered items
   };  
 
   const handleInputChange = (e) => {
@@ -156,7 +156,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-100">
-
+      {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div 
           className="absolute inset-0 z-0 opacity-20"
@@ -182,12 +182,12 @@ function App() {
         </div>
       </div>
 
-
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="bg-gray-800 rounded-lg shadow-xl p-6 md:p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-
+              {/* moisture Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Mountain className="w-4 h-4 mr-2" />
@@ -203,7 +203,7 @@ function App() {
                 />
               </div>
 
-
+              {/* temperature Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Leaf className="w-4 h-4 mr-2" />
@@ -218,7 +218,7 @@ function App() {
                 />
               </div>
 
-
+              {/* humidity Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Plant className="w-4 h-4 mr-2" />
@@ -233,7 +233,7 @@ function App() {
                 />
               </div>
 
-
+              {/* light intensity Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Mountain className="w-4 h-4 mr-2" />
@@ -248,7 +248,7 @@ function App() {
                 />
               </div>
 
-
+              {/* ph Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Droplet className="w-4 h-4 mr-2" />
@@ -263,6 +263,7 @@ function App() {
                 />
               </div>
 
+              {/* nitrogen Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Wind className="w-4 h-4 mr-2" />
@@ -277,6 +278,7 @@ function App() {
                 />
               </div>
 
+              {/* phosphorus Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Wind className="w-4 h-4 mr-2" />
@@ -291,6 +293,7 @@ function App() {
                 />
               </div>
 
+              {/* potassium Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Wind className="w-4 h-4 mr-2" />
@@ -305,7 +308,7 @@ function App() {
                 />
               </div>
 
-
+              {/* conductivity Input */}
               <div className="relative">
                 <label className="flex items-center text-sm font-medium mb-2">
                   <Wind className="w-4 h-4 mr-2" />
@@ -339,10 +342,11 @@ function App() {
               <div className='text-3xl font-bold my-10'>
                 Soil Health: {result}
               </div>
-              <div className='bg-green-300/10 p-4 rounded-lg'>
+              
                 {
                   recommendations === '' ? '' : 
                   (
+                  <div className='bg-green-300/10 p-4 rounded-lg'>
                   <div className='flex flex-col'>
                     <div className='text-2xl my-6 font-semibold'>
                       Recommendations to maintain soil health
@@ -351,9 +355,9 @@ function App() {
                       <div dangerouslySetInnerHTML={{ __html: recommendations }} />
                     </div>
                   </div>
+                  </div>
                   )
                 }
-              </div>
             </div>
           </form>
         </div>
